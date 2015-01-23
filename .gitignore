@@ -1,0 +1,7 @@
+# no swap files
+*.swo
+*.swp
+# personal run file
+run.sh
+# no compiled Python files
+*.pyc
