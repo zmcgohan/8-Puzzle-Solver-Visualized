@@ -10,7 +10,7 @@ class IntBoard:
 		else:
 			# starts from a solved board and moves it around randomly A LOT
 			self.board_int = 912345678
-			for i in xrange(randint(5000,25000)):
+			for i in xrange(5):
 				self.board_int = choice(self.get_adjacent_boards())[0]
 	def get_adjacent_boards(self):
 		"""Returns a list of boards where the elements are tuples with the first element being the board's hash (also the internal repr in this case), and the second element being which direction the empty tile moved to make the new board.
