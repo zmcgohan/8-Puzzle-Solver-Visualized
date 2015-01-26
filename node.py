@@ -10,6 +10,13 @@ class Node:
 		self.parent = parent
 		self.action = action
 		self.cost = parent.cost + 1 if parent is not None else 0
+	def get_move_sequence(self):
+		moves = []
+		cur_node = self
+		while cur_node.parent is not None:
+			moves.insert(0, cur_node.action)
+			cur_node = cur_node.parent
+		return moves
 	def __hash__(self):
 		return hash(self.state)
 	def __str__(self):

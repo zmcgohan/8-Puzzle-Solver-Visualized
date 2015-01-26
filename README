@@ -1,6 +1,6 @@
 :.:.: 8-Puzzle Solver :.:.:
 
-This program solves the 8-puzzle problem on a 3x3 board using various methods and heuristics.
+This program solves the 8-puzzle problem on a 3x3 board using uninformed graph search.
 
 Program flow:
 1. Random board is created
@@ -8,9 +8,4 @@ Program flow:
 3. Solver class solves board and returns solution move sequence
 4. View class displays animated move sequence
 
-* Enter pressed at any time 
-
-Program layout:
-	run.py - Starts and runs the program
-	Board - Representation of the 8-puzzle's 3x3 board
-	View - View class
+* Enter pressed at any time except when solving (don't want to deal with threads) will create and solve a new board
