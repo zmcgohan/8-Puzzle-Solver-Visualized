@@ -1,7 +1,5 @@
-from board import Board
+from int_board import IntBoard
 import solvers
 
 if __name__ == '__main__':
-	board = Board()
-	solver = solvers.UninformedGraphSearchSolver(board)
-	solver.solve_board()
+	board = IntBoard()
