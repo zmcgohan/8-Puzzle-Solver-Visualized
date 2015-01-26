@@ -1,6 +1,6 @@
 """Module for stuff related to an 8-puzzle board represented internally by an integer, which gets modified through only mathematical operations."""
 
-from random import shuffle
+from random import choice, randint
 
 class IntBoard:
 	"""Board represented internally as an integer. 1-8 are the numbered tiles, 9 is empty."""
@@ -8,12 +8,10 @@ class IntBoard:
 		if init_board is not None:
 			self.board_int = init_board
 		else:
-			shuffled_digits = [x for x in xrange(1,10)]
-			shuffle(shuffled_digits)
-			self.board_int = 0
-			for digit in shuffled_digits:
-				self.board_int *= 10
-				self.board_int += digit
+			# starts from a solved board and moves it around randomly A LOT
+			self.board_int = 912345678
+			for i in xrange(randint(5000,25000)):
+				self.board_int = choice(self.get_adjacent_boards())[0]
 	def get_adjacent_boards(self):
 		"""Returns a list of boards where the elements are tuples with the first element being the board's hash (also the internal repr in this case), and the second element being which direction the empty tile moved to make the new board.
 
@@ -53,8 +51,10 @@ class IntBoard:
 			left_board += (9-switch_num)*10**(8-empty_pos+1)
 			adjacent_boards.append((left_board, 3))
 		return adjacent_boards
-	def __hash__(self):
+	def get_goal_hash(self):
 		return 912345678
+	def __hash__(self):
+		return self.board_int
 	def __str__(self):
 		temp_board_int = self.board_int
 		board_str = ""
